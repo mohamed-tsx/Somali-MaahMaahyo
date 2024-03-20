@@ -3,6 +3,8 @@ require("dotenv").config();
 const maahmaayoRoutes = require("./Routes/maaMaahyoRoutes");
 
 const server = express();
+server.use(express.json());
+server.use(express.urlencoded({ extended: false }));
 
 const PORT = process.env.PORT;
 
