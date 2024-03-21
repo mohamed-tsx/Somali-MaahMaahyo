@@ -15,5 +15,5 @@ datasource db {
 
 model MaahMaahyo {
   id         Int    @id @default(autoincrement())
-  maahmaahyo String
+  maahmaahyo String @unique
 }
