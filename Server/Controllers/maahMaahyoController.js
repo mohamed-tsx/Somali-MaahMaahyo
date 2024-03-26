@@ -2,6 +2,10 @@ const asyncHandler = require("express-async-handler");
 const Prisma = require("../Config/Prisma");
 const getAllMaahMaahyo = asyncHandler(async (req, res) => {
   const AllMaahMaahyo = await Prisma.maahMaahyo.findMany();
+  if (!AllMaahMaahyo) {
+    res.status(200);
+    throw new Error("There's no maahmaahyo");
+  }
   res.status(200).json({
     success: true,
     maahMaahyo: AllMaahMaahyo,
